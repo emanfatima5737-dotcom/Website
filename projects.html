@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="website.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+
+      <!-- LOGO -->
+      <a href="#" class="logo">
+        <img src="images/preview.webp" alt="Brand Logo">
+        <span class="logo-text">Brand</span>
+      </a>
+      <!-- SEARCH BAR (Desktop) -->
+      <div class="search-wrapper">
+
+        <input type="text" class="search-input" placeholder="Search products...">
+
+        <div class="cat-dropdown">
+          <button class="cat-btn" id="catBtn" onclick="toggleCat()">
+            All category
+            <span class="arrow">▼</span>
+          </button>
+          <div class="cat-menu" id="catMenu">
+            <a href="#" onclick="selectCat(this)"><span class="icon">⌚</span> Smart Watches</a>
+            <a href="#" onclick="selectCat(this)"><span class="icon">💻</span> Laptops</a>
+            <a href="#" onclick="selectCat(this)"><span class="icon">📷</span> Cameras</a>
+            <a href="#" onclick="selectCat(this)"><span class="icon">🎧</span> Headphones</a>
+          </div>
+        </div>
+
+        <button class="search-btn">
+          
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <span class="btn-text">Search</span>
+        </button>
+
+      </div>
+
+      <!-- NAV ICONS -->
+      <div class="nav-icons">
+
+        <!-- Person -->
+        <a href="#" class="nav-icon">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+          </svg>
+          <span>Person</span>
+        </a>
+
+      
+
+        <!-- Message -->
+        <a href="#" class="nav-icon">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+          </svg>
+          <span>Message</span>
+        </a>
+
+        
+
+        <!-- Orders -->
+        <a href="#" class="nav-icon">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span>Orders</span>
+        </a>
+
+      
+
+        <!-- My Cart -->
+        <a href="#" class="nav-icon">
+          <div></div>
+          <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-9.8-3h11.2c.8 0 1.5-.4 1.8-1.1L22 6H6.2L5.3 4H2v2h2l3.6 7.6L6.2 15H20v-2H7.4l-.7-1.4-.5-1H17z"/>
+          </svg>
+          <span>My Cart</span>
+        </a>
+
+      </div>
+
+      <!-- HAMBURGER (Mobile) -->
+      <div class="hamburger" onclick="toggleMobileSearch()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </nav>
+
+    <!-- MOBILE SEARCH BAR -->
+    <div class="mobile-search" id="mobileSearch" style="display:none">
+      <div class="search-wrapper" style="display:flex">
+        <div class="cat-dropdown">
+          <button class="cat-btn" id="catBtn2" onclick="toggleCat2()">
+            All category <span class="arrow">▼</span>
+          </button>
+          <div class="cat-menu" id="catMenu2">
+            <a href="#" onclick="selectCat2(this)"><span class="icon">⌚</span> Smart Watches</a>
+            <a href="#" onclick="selectCat2(this)"><span class="icon">💻</span> Laptops</a>
+            <a href="#" onclick="selectCat2(this)"><span class="icon">📷</span> Cameras</a>
+            <a href="#" onclick="selectCat2(this)"><span class="icon">🎧</span> Headphones</a>
+          </div>
+        </div>
+        <input type="text" class="search-input" placeholder="Search products...">
+        <button class="search-btn">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="top-menu">
+        <div class="menu-left">
+          <span class="menu-icon"><i class="fa-solid fa-bars"></i></span>
+          <a href="#">All category</a>
+          <a href="website.html">Hot offers</a>
+
+          <a href="gift.html">Gift boxes</a>
+          
+          <a href="projects.html">Projects</a>
+          <a href="menu.html">Menu items</a>
+          <div class="help">
+            <a href="#">Help ▼</a>
+            <div class="help-menu">
+              <a href="#">Customer Service</a>
+              <a href="#">Track Order</a>
+              <a href="#">Contact</a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="menu-right">
+          <select>
+            <option>English, USD</option>
+            <option>German, EUR</option>
+            <option>France, USD</option>
+            <option>Japanese, JPY</option>
+          </select>
+      
+          <select>
+            <option>Ship to Pak</option>
+            <option>German, EUR</option>
+            <option>France, USD</option>
+            <option>Japanese, JPY</option>
+          </select>
+        </div>
+      </div>
+
+    
+
+      <div class="breadcrumb">
+        <a href="#">Home</a> <span>›</span>
+        <a href="#">Clothing</a> <span>›</span>
+        <a href="#">Men's wear</a> <span>›</span>
+        Summer clothing
+      </div>
+      
+  
+       <!-- PRODUCT PAGE -->
+    <div class="product-page">
+
+        <!-- LEFT — IMAGES -->
+        <div class="product-images">
+          <img class="main-img" id="mainImg" src="images/shirt.png" alt="Product">
+          <div class="thumb-row">
+            <img class="thumb active" src="images/shirt.png" onclick="changeImg(this)">
+            <img class="thumb" src="images/j.jpeg" onclick="changeImg(this)">
+            <img class="thumb" src="images/coat.jpeg" onclick="changeImg(this)">
+            <img class="thumb" src="images/shirt1.webp" onclick="changeImg(this)">
+            <img class="thumb" src="images/bag.jpeg" onclick="changeImg(this)">
+            <img class="thumb" src="images/wallet.jpeg" onclick="changeImg(this)">
+          </div>
+        </div>
+  
+        <!-- MIDDLE — PRODUCT INFO -->
+        <div class="product-info">
+          <div class="in-stock">✓ In stock</div>
+          <h1>Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</h1>
+  
+          <div class="product-meta">
+            <span class="stars">★★★★★</span>
+            <span class="rating-num">9.3</span>
+            <span>32 reviews</span>
+            <span>·</span>
+            <span>154 sold</span>
+          </div>
+  
+          <!-- PRICE TABLE -->
+          <div class="price-table">
+            <div class="price-cell">
+              <div class="amount">$98.00</div>
+              <div class="qty">50-100 pcs</div>
+            </div>
+            <div class="price-cell">
+              <div class="amount">$90.00</div>
+              <div class="qty">100-700 pcs</div>
+            </div>
+            <div class="price-cell">
+              <div class="amount">$78.00</div>
+              <div class="qty">700+ pcs</div>
+            </div>
+          </div>
+  
+          <!-- SIZE -->
+          <div class="size-section">
+            <label>Size</label>
+            <select class="size-select" onchange="updateSize(this)">
+              <option>Small (S)</option>
+              <option selected>Medium (M)</option>
+              <option>Large (L)</option>
+              <option>Extra Large (XL)</option>
+            </select>
+            <span class="selected-size" id="selectedSize">Selected: Medium (M)</span>
+          </div>
+  
+          <!-- ADD TO CART -->
+          <button class="add-to-cart-btn">Add to cart</button>
+  
+          <!-- DETAILS TABLE -->
+          <table class="details-table">
+            <tr>
+              <td>Price:</td>
+              <td>Negotiable</td>
+            </tr>
+            <tr>
+              <td>Type:</td>
+              <td>Classic shoes</td>
+            </tr>
+            <tr>
+              <td>Material:</td>
+              <td>Plastic material</td>
+            </tr>
+            <tr>
+              <td>Design:</td>
+              <td>Modern nice</td>
+            </tr>
+            <tr>
+              <td>Customization:</td>
+              <td>Customized logo and custom packages</td>
+            </tr>
+            <tr>
+              <td>Protection:</td>
+              <td>Refund Policy</td>
+            </tr>
+            <tr>
+              <td>Warranty:</td>
+              <td>2 years full warranty</td>
+            </tr>
+          </table>
+        </div>
+  
+        <!-- RIGHT — SUPPLIER -->
+        <div class="product-supplier">
+          <div class="supplier-card">
+            <div class="supplier-label">Supplier</div>
+            <div class="supplier-name">Guanjoi Trading LLC</div>
+  
+            <div class="supplier-info">
+              <div class="supplier-info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                Germany, Berlin
+              </div>
+              <div class="supplier-info-item">
+                <i class="fas fa-check-circle"></i>
+                Verified Seller
+              </div>
+              <div class="supplier-info-item">
+                <i class="fas fa-globe"></i>
+                Worldwide shipping
+              </div>
+            </div>
+  
+            <button class="send-inquiry-btn">Send inquiry</button>
+            <button class="seller-profile-btn">Seller's profile</button>
+            <div class="save-later">
+              <i class="far fa-heart"></i> Save for later
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+
+
+
+
+
+
+
+
+
+      <div class="page-wrapper">
+ 
+        <!-- LEFT CONTENT -->
+        <div class="left-content">
+          <div class="tabs">
+            <div class="tab active">Description</div>
+            <div class="tab">Reviews</div>
+            <div class="tab">Shipping</div>
+            <div class="tab">About seller</div>
+          </div>
+          <div class="left-inner">
+            <p class="description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p class="description-text">nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p class="description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, enim? Voluptatibus aperiam sequi beatae architecto deleniti!</p>
+       
+            <table class="specs-table">
+              <tr><td>Model</td><td>#8786867</td></tr>
+              <tr><td>Style</td><td>Classic style</td></tr>
+              <tr><td>Certificate</td><td>ISO-898921212</td></tr>
+              <tr><td>Size</td><td>34mm x 450mm x 19mm</td></tr>
+              <tr><td>Memory</td><td>36GB RAM</td></tr>
+            </table>
+       
+            <ul class="feature-list">
+              <li>Some great feature name here</li>
+              <li>Lorem ipsum dolor sit amet, consectetur</li>
+              <li>Duis aute irure dolor in reprehenderit</li>
+              <li>Some great feature name here</li>
+            </ul>
+          </div>
+        </div>
+       
+        <!-- RIGHT SIDEBAR -->
+        <div class="right-sidebar">
+          <!-- This empty bar lines up perfectly with the tabs bar on left -->
+          <div class="sidebar-top"></div>
+          <div class="sidebar-inner">
+            <div class="sidebar-title">You may like</div>
+       
+            <div class="product-card">
+              <img src="images/2 1.png" alt="Men Blazers">
+              <div class="product-info">
+                <div class="product-name">Men Blazers Sets Elegant Formal</div>
+                <div class="product-price">$7.00 – $99.50</div>
+              </div>
+            </div>
+       
+            <div class="product-card">
+              <img src="images/shirt1.webp" alt="Polo Shirt">
+              <div class="product-info">
+                <div class="product-name">Men Shirt Sleeve Polo Contrast</div>
+                <div class="product-price">$7.00 – $99.50</div>
+              </div>
+            </div>
+       
+            <div class="product-card">
+              <img src="images/watch.webp" alt="Apple Watch">
+              <div class="product-info">
+                <div class="product-name">Apple Watch Series Space Gray</div>
+                <div class="product-price">$7.00 – $99.50</div>
+              </div>
+            </div>
+       
+            <div class="product-card">
+              <img src="images/bag.jpeg" alt="Travel Bag">
+              <div class="product-info">
+                <div class="product-name">Travel Bag</div>
+                <div class="product-price">$8.00 – $19.50</div>
+              </div>
+            </div>
+       
+            <div class="product-card">
+              <img src="images/coat.jpeg" alt="Coat for Men">
+              <div class="product-info">
+                <div class="product-name">Coat for Men</div>
+                <div class="product-price">$10.00 – $200.50</div>
+              </div>
+            </div>
+       
+          </div>
+        </div>
+       
+      </div>
+
+
+
+
+      <div class="product-section">
+
+        <h2 class="title">Related products</h2>
+      
+        <div class="products">
+      
+          <div class="card">
+            <img src="images/Smart-Watch.jpg" alt="">
+            <p>Apple Watch</p>
+            <span>$32.00 - $40.00</span>
+          </div>
+      
+          <div class="card">
+            <img src="images/for kids.jpg" alt="">
+            <p>Smart Watch for Kids</p>
+            <span>$12.00 - $30.00</span>
+          </div>
+      
+          <div class="card">
+            <img src="images/macbook.webp" alt="">
+            <p>Macbook</p>
+            <span>$132.00 - $240.00</span>
+          </div>
+      
+          <div class="card">
+            <img src="images/camera.webp" alt="">
+            <p>HPro Camera</p>
+            <span>$62.00 - $140.00</span>
+          </div>
+      
+          <div class="card">
+            <img src="images/Group 1004.png" alt="">
+            <p>T-shirts for men</p>
+            <span>$12.00 - $240.00</span>
+          </div>
+      
+          <div class="card">
+            <img src="images/bag.jpeg" alt="">
+            <p>Travel Bags</p>
+            <span>$32.00 - $140.00</span>
+          </div>
+      
+        </div>
+      
+        <!-- BLUE BANNER -->
+        <div class="banner">
+          <div class="text">
+            <h2>Super discount on more than 100 USD</h2>
+            <p>Have you ever finally just write dummy info</p>
+          </div>
+      
+          <button>Shop now</button>
+        </div>
+      
+      </div>
+      
+
+
+
+
+
+
+
+
+<!-- NEWSLETTER -->
+<div class="newsletter-section">
+  <h2>Subscribe on our newsletter</h2>
+  <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+  <div class="newsletter-form">
+    <div class="email-input-wrapper">
+      <svg width="18" height="18" fill="none" stroke="#888" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+      </svg>
+      <input type="email" placeholder="Email">
+    </div>
+    <button class="subscribe-btn">Subscribe</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <img src="images/preview.webp" alt="Brand Logo">
+        <span class="logo-text">Brand</span>
+      </a>
+      <p>Best information about the company goes here but now lorem ipsum is enough.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Find store</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Blogs</a></li>
+      </ul>
+    </div>
+
+    <!-- Partnership -->
+    <div class="footer-col">
+      <h4>Partnership</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Find store</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Blogs</a></li>
+      </ul>
+    </div>
+
+    <!-- Information -->
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Money Refund</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </div>
+
+    <!-- For users -->
+    <div class="footer-col">
+      <h4>For users</h4>
+      <ul>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">My Orders</a></li>
+      </ul>
+    </div>
+
+    <!-- Get app -->
+    <div class="footer-col">
+      <h4>Get app</h4>
+      <div class="app-btns">
+        <a href="#" class="app-btn">
+          <i class="fab fa-apple"></i>
+          <div>
+            <span>Download on the</span>
+            <strong>App Store</strong>
+          </div>
+        </a>
+        <a href="#" class="app-btn">
+          <i class="fab fa-google-play"></i>
+          <div>
+            <span>GET IT ON</span>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>© 2026 Ecommerce.</p>
+    <div class="footer-lang">
+      <img src="https://flagcdn.com/w40/us.png" alt="English">
+      <span>English</span>
+    
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

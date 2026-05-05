@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="website.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+
+      <!-- LOGO -->
+      <a href="#" class="logo">
+        <img src="images/preview.webp" alt="Brand Logo">
+        <span class="logo-text">Brand</span>
+      </a>
+      <!-- SEARCH BAR (Desktop) -->
+      <div class="search-wrapper">
+
+        <input type="text" class="search-input" placeholder="Search products...">
+
+        <div class="cat-dropdown">
+          <button class="cat-btn" id="catBtn" onclick="toggleCat()">
+            All category
+            <span class="arrow">▼</span>
+          </button>
+          <div class="cat-menu" id="catMenu">
+            <a href="#" onclick="selectCat(this)"><span class="icon">⌚</span> Smart Watches</a>
+            <a href="#" onclick="selectCat(this)"><span class="icon">💻</span> Laptops</a>
+            <a href="#" onclick="selectCat(this)"><span class="icon">📷</span> Cameras</a>
+            <a href="#" onclick="selectCat(this)"><span class="icon">🎧</span> Headphones</a>
+          </div>
+        </div>
+
+        <button class="search-btn">
+          
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <span class="btn-text">Search</span>
+        </button>
+
+      </div>
+
+      <!-- NAV ICONS -->
+      <div class="nav-icons">
+
+        <!-- Person -->
+        <a href="#" class="nav-icon">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+          </svg>
+          <span>Person</span>
+        </a>
+
+      
+
+        <!-- Message -->
+        <a href="#" class="nav-icon">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+          </svg>
+          <span>Message</span>
+        </a>
+
+        
+
+        <!-- Orders -->
+        <a href="#" class="nav-icon">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span>Orders</span>
+        </a>
+
+      
+
+        <!-- My Cart -->
+        <a href="#" class="nav-icon">
+          <div></div>
+          <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-9.8-3h11.2c.8 0 1.5-.4 1.8-1.1L22 6H6.2L5.3 4H2v2h2l3.6 7.6L6.2 15H20v-2H7.4l-.7-1.4-.5-1H17z"/>
+          </svg>
+          <span>My Cart</span>
+        </a>
+
+      </div>
+
+      <!-- HAMBURGER (Mobile) -->
+      <div class="hamburger" onclick="toggleMobileSearch()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </nav>
+
+    <!-- MOBILE SEARCH BAR -->
+    <div class="mobile-search" id="mobileSearch" style="display:none">
+      <div class="search-wrapper" style="display:flex">
+        <div class="cat-dropdown">
+          <button class="cat-btn" id="catBtn2" onclick="toggleCat2()">
+            All category <span class="arrow">▼</span>
+          </button>
+          <div class="cat-menu" id="catMenu2">
+            <a href="#" onclick="selectCat2(this)"><span class="icon">⌚</span> Smart Watches</a>
+            <a href="#" onclick="selectCat2(this)"><span class="icon">💻</span> Laptops</a>
+            <a href="#" onclick="selectCat2(this)"><span class="icon">📷</span> Cameras</a>
+            <a href="#" onclick="selectCat2(this)"><span class="icon">🎧</span> Headphones</a>
+          </div>
+        </div>
+        <input type="text" class="search-input" placeholder="Search products...">
+        <button class="search-btn">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="top-menu">
+        <div class="menu-left">
+          <span class="menu-icon"><i class="fa-solid fa-bars"></i></span>
+          <a href="#">All category</a>
+          <a href="website.html">Hot offers</a>
+
+          <a href="gift.html">Gift boxes</a>
+          
+          <a href="projects.html">Projects</a>
+          <a href="menu.html">Menu items</a>
+          <div class="help">
+            <a href="#">Help ▼</a>
+            <div class="help-menu">
+              <a href="#">Customer Service</a>
+              <a href="#">Track Order</a>
+              <a href="#">Contact</a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="menu-right">
+          <select>
+            <option>English, USD</option>
+            <option>German, EUR</option>
+            <option>France, USD</option>
+            <option>Japanese, JPY</option>
+          </select>
+      
+          <select>
+            <option>Ship to Pak</option>
+            <option>German, EUR</option>
+            <option>France, USD</option>
+            <option>Japanese, JPY</option>
+          </select>
+        </div>
+      </div>
+
+    
+
+      <div class="breadcrumb">
+        <a href="#">Home</a> <span>›</span>
+        <a href="#">Clothing</a> <span>›</span>
+        <a href="#">Men's wear</a> <span>›</span>
+        Summer clothing
+      </div>
+      
+      <div class="filter-bar">
+        <div class="filter-left">
+          <strong>12,911</strong> items in Mobile accessory
+        </div>
+        <div class="filter-right">
+          <label class="verified-label">
+            <input type="checkbox" checked> Verified only
+          </label>
+          <select class="filter-select">
+            <option>Featured</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Newest first</option>
+          </select>
+          <div class="view-btns">
+            <div class="view-btn active" title="Grid view">
+              <i class="fa-solid fa-grip"></i>
+            </div>
+            <div class="view-btn" title="List view">
+              <i class="fa-solid fa-list"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="listing-layout">
+
+        <!-- LEFT SIDEBAR -->
+        <div class="listing-sidebar">
+      
+          <div class="sidebar-section">
+            <h4>Category</h4>
+            <ul>
+              <li>Mobile accessory</li>
+              <li>Electronics</li>
+              <li>Smartphones</li>
+              <li>Modern tech</li>
+            </ul>
+            <a href="#" class="see-all">See all</a>
+          </div>
+      
+          <div class="sidebar-section">
+            <h4>Brands</h4>
+            <label><input type="checkbox" checked> Samsung</label>
+            <label><input type="checkbox" checked> Apple</label>
+            <label><input type="checkbox"> Huawei</label>
+            <label><input type="checkbox"> Poco</label>
+            <label><input type="checkbox"> Lenovo</label>
+            <a href="#" class="see-all">See all</a>
+          </div>
+      
+          <div class="sidebar-section">
+            <h4>Features</h4>
+            <label><input type="checkbox"> Metallic</label>
+            <label><input type="checkbox"> Plastic cover</label>
+            <label><input type="checkbox"> 8GB Ram</label>
+            <label><input type="checkbox"> Super power</label>
+            <label><input type="checkbox"> Large memory</label>
+            <a href="#" class="see-all">See all</a>
+          </div>
+      
+          <div class="sidebar-section">
+            <h4>Price range</h4>
+            <input type="range" min="0" max="1000" value="300" class="price-slider">
+            <div class="price-inputs">
+              <input type="number" placeholder="Min">
+              <input type="number" placeholder="Max">
+            </div>
+            <button class="apply-btn">Apply</button>
+          </div>
+      
+          <div class="sidebar-section">
+            <h4>Condition</h4>
+            <label><input type="radio" name="condition" checked> Any</label>
+            <label><input type="radio" name="condition"> Refurbished</label>
+            <label><input type="radio" name="condition"> Brand new</label>
+            <label><input type="radio" name="condition"> Old items</label>
+          </div>
+      
+          <div class="sidebar-section">
+            <h4>Ratings</h4>
+            <label><input type="checkbox"> ★★★★★</label>
+            <label><input type="checkbox"> ★★★★☆</label>
+            <label><input type="checkbox"> ★★★☆☆</label>
+          </div>
+      
+        </div>
+      
+        <!-- RIGHT PRODUCTS LIST -->
+        <div class="listing-products">
+      
+          <div class="listing-card">
+            <img src="images/phone.webp" alt="Product">
+            <div class="listing-info">
+              <h3>Canon Cera EO5 2000, Black 10x zoom</h3>
+              <div class="listing-price">
+                <span class="new-price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
+              <div class="listing-meta">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-num">7.5</span>
+                <span class="dot">·</span>
+                <span class="orders">154 orders</span>
+                <span class="dot">·</span>
+                <span class="free-ship">Free Shipping</span>
+              </div>
+              <p class="listing-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <div class="listing-btns">
+                <span class="view-btn">View details</span>
+                <button class="buy-btn">Buy now</button>
+              </div>
+            </div>
+            <button class="wish-btn">♡</button>
+          </div>
+      
+          <div class="listing-card">
+            <img src="images/phone.jpeg" alt="Product">
+            <div class="listing-info">
+              <h3>GoPro HERO6 4K Action Camera - Black</h3>
+              <div class="listing-price">
+                <span class="new-price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
+              <div class="listing-meta">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-num">7.5</span>
+                <span class="dot">·</span>
+                <span class="orders">154 orders</span>
+                <span class="dot">·</span>
+                <span class="free-ship">Free Shipping</span>
+              </div>
+              <p class="listing-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="listing-btns">
+                <button class="view-btn">View details</button>
+                <button class="buy-btn">Buy now</button>
+              </div>
+            </div>
+            <button class="wish-btn">♡</button>
+          </div>
+      
+          <div class="listing-card">
+            <img src="images/tab.png" alt="Product">
+            <div class="listing-info">
+              <h3>GoPro SmartWatch - Black</h3>
+              <div class="listing-price">
+                <span class="new-price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
+              <div class="listing-meta">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-num">7.5</span>
+                <span class="dot">·</span>
+                <span class="orders">154 orders</span>
+                <span class="dot">·</span>
+                <span class="free-ship">Free Shipping</span>
+              </div>
+              <p class="listing-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="listing-btns">
+                <button class="view-btn">View details</button>
+                <button class="buy-btn">Buy now</button>
+              </div>
+            </div>
+            <button class="wish-btn">♡</button>
+          </div>
+      
+          <div class="listing-card">
+            <img src="images/watch.webp" alt="Product">
+            <div class="listing-info">
+              <h3>GoPro Headphone - White</h3>
+              <div class="listing-price">
+                <span class="new-price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
+              <div class="listing-meta">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-num">7.5</span>
+                <span class="dot">·</span>
+                <span class="orders">154 orders</span>
+                <span class="dot">·</span>
+                <span class="free-ship">Free Shipping</span>
+              </div>
+              
+              <p class="listing-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="listing-btns">
+                <button class="view-btn">View details</button>
+                <button class="buy-btn">Buy now</button>
+              </div>
+            </div>
+            <button class="wish-btn">♡</button>
+          </div>
+      
+          <div class="listing-card">
+            <img src="images/head.png" alt="Product">
+            <div class="listing-info">
+              <h3>GoPro Laptop - Black</h3>
+              <div class="listing-price">
+                <span class="new-price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
+              <div class="listing-meta">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-num">7.5</span>
+                <span class="dot">·</span>
+                <span class="orders">154 orders</span>
+                <span class="dot">·</span>
+                <span class="free-ship">Free Shipping</span>
+              </div>
+              <p class="listing-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="listing-btns">
+                <button class="view-btn">View details</button>
+                <button class="buy-btn">Buy now</button>
+              </div>
+            </div>
+            <button class="wish-btn">♡</button>
+          </div>
+      
+
+          <div class="listing-card">
+            <img src="images/laptop.webp" alt="Product">
+            <div class="listing-info">
+              <h3>GoPro Laptop - Black</h3>
+              <div class="listing-price">
+                <span class="new-price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
+              <div class="listing-meta">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-num">7.5</span>
+                <span class="dot">·</span>
+                <span class="orders">154 orders</span>
+                <span class="dot">·</span>
+                <span class="free-ship">Free Shipping</span>
+              </div>
+              <p class="listing-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="listing-btns">
+                <button class="view-btn">View details</button>
+                <button class="buy-btn">Buy now</button>
+              </div>
+            </div>
+            <button class="wish-btn">♡</button>
+          </div>
+          <!-- PAGINATION -->
+          <div class="pagination">
+            <button class="page-btn">&#8249;</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">&#8250;</button>
+          </div>
+      
+        </div>
+      </div>
+      <div class="breadcrumb">
+        <a href="#">Home</a> <span>›</span>
+        <a href="#">Clothing</a> <span>›</span>
+        <a href="#">Men's wear </a> <span>›</span>
+        Summer clothing
+      </div>
+      
+
+
+  
+      <div class="lst-page-wrapper">
+       
+        <!-- SIDEBAR -->
+        <aside class="lst-sidebar">
+       
+          <div class="lst-sidebar-section">
+            <h3>Category</h3>
+            <ul>
+              <li><strong>Mobile accessory</strong></li>
+              <li>Electronics</li>
+              <li>Smartphones</li>
+              <li>Modern tech</li>
+            </ul>
+            <a class="lst-see-all" href="#">See all</a>
+          </div>
+       
+          <hr class="lst-divider"/>
+       
+          <div class="lst-sidebar-section">
+            <h3>Brands</h3>
+            <label class="lst-check-row"><input type="checkbox" checked/> Samsung</label>
+            <label class="lst-check-row"><input type="checkbox" checked/> Apple</label>
+            <label class="lst-check-row"><input type="checkbox"/> Huawei</label>
+            <label class="lst-check-row"><input type="checkbox"/> Poco</label>
+            <label class="lst-check-row"><input type="checkbox"/> Lenovo</label>
+            <a class="lst-see-all" href="#">See all</a>
+          </div>
+       
+          <hr class="lst-divider"/>
+       
+          <div class="lst-sidebar-section">
+            <h3>Features</h3>
+            <label class="lst-check-row"><input type="checkbox" checked/> Metallic</label>
+            <label class="lst-check-row"><input type="checkbox"/> Plastic cover</label>
+            <label class="lst-check-row"><input type="checkbox"/> 8GB Ram</label>
+            <label class="lst-check-row"><input type="checkbox"/> Super power</label>
+            <label class="lst-check-row"><input type="checkbox"/> Large memory</label>
+            <a class="lst-see-all" href="#">See all</a>
+          </div>
+       
+          <div class="lst-collapsible" id="lst-price">
+            <div class="lst-col-header" onclick="lstToggle('lst-price')">
+              Price range <span class="lst-arrow">&#8964;</span>
+            </div>
+            <div class="lst-col-body">
+              <label class="lst-check-row"><input type="checkbox"/> Under $50</label>
+              <label class="lst-check-row"><input type="checkbox"/> $50 – $100</label>
+              <label class="lst-check-row"><input type="checkbox"/> $100 – $200</label>
+              <label class="lst-check-row"><input type="checkbox"/> Over $200</label>
+            </div>
+          </div>
+       
+          <div class="lst-collapsible" id="lst-cond">
+            <div class="lst-col-header" onclick="lstToggle('lst-cond')">
+              Condition <span class="lst-arrow">&#8964;</span>
+            </div>
+            <div class="lst-col-body">
+              <label class="lst-check-row"><input type="checkbox"/> New</label>
+              <label class="lst-check-row"><input type="checkbox"/> Refurbished</label>
+              <label class="lst-check-row"><input type="checkbox"/> Used</label>
+            </div>
+          </div>
+       
+          <div class="lst-collapsible" id="lst-rat">
+            <div class="lst-col-header" onclick="lstToggle('lst-rat')">
+              Ratings <span class="lst-arrow">&#8964;</span>
+            </div>
+            <div class="lst-col-body">
+              <label class="lst-check-row"><input type="checkbox"/> ★★★★★ 5 star</label>
+              <label class="lst-check-row"><input type="checkbox" checked/> ★★★★☆ 4 star</label>
+              <label class="lst-check-row"><input type="checkbox" checked/> ★★★☆☆ 3 star</label>
+            </div>
+          </div>
+       
+          <div class="lst-collapsible" id="lst-mfr">
+            <div class="lst-col-header" onclick="lstToggle('lst-mfr')">
+              Manufacturer <span class="lst-arrow">&#8964;</span>
+            </div>
+            <div class="lst-col-body">
+              <label class="lst-check-row"><input type="checkbox"/> Samsung</label>
+              <label class="lst-check-row"><input type="checkbox"/> Apple</label>
+              <label class="lst-check-row"><input type="checkbox"/> Sony</label>
+            </div>
+          </div>
+       
+        </aside>
+       
+        <!-- MAIN -->
+        <main class="lst-main">
+       
+          <div class="lst-topbar">
+            <h2><strong>12,911 items</strong> in Mobile accessory</h2>
+            <div class="lst-topbar-right">
+              <label class="lst-verified">
+                <input type="checkbox" checked/> Verified only
+              </label>
+              <select class="lst-sort">
+                <option>Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Best Rated</option>
+                <option>Newest</option>
+              </select>
+              <div class="lst-view-toggle">
+                <button class="lst-view-btn lst-active" title="Grid view">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <rect x="0" y="0" width="6" height="6"/><rect x="10" y="0" width="6" height="6"/>
+                    <rect x="0" y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/>
+                  </svg>
+                </button>
+                <button class="lst-view-btn" title="List view">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <rect x="0" y="1" width="16" height="3"/><rect x="0" y="7" width="16" height="3"/>
+                    <rect x="0" y="13" width="16" height="3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+       
+          <div class="lst-filters-bar">
+            <span class="lst-filter-tag">Samsung <span class="lst-remove">✕</span></span>
+            <span class="lst-filter-tag">Apple <span class="lst-remove">✕</span></span>
+            <span class="lst-filter-tag">Poco <span class="lst-remove">✕</span></span>
+            <span class="lst-filter-tag">Metallic <span class="lst-remove">✕</span></span>
+            <span class="lst-filter-tag">4 star <span class="lst-remove">✕</span></span>
+            <span class="lst-filter-tag">3 star <span class="lst-remove">✕</span></span>
+            <button class="lst-clear-btn">Clear all filter</button>
+          </div>
+       
+          <div class="lst-grid">
+       
+            <div class="lst-card">
+              <button class="lst-wish">♡</button>
+              <div class="lst-img-box"><img src="images/3.png" alt="Phone" onerror="this.onerror=null;this.src='https://placehold.co/180x140/f0f0f0/888?text=Phone'"/></div>
+              <div class="lst-price-row"><span class="lst-price-now">$99.50</span><span class="lst-price-old">$1128.00</span></div>
+              <div class="lst-rating-row"><span class="lst-stars">★★★★★</span><span class="lst-rating-num">7.5</span></div>
+              <div class="lst-prod-name">GoPro HERO6 4K Action Camera – Black</div>
+              <button class="lst-buy-btn">Buy now</button>
+            </div>
+       
+            <div class="lst-card">
+              <button class="lst-wish">♡</button>
+              <div class="lst-img-box"><img src="images/tab.png" alt="Tablet" onerror="this.onerror=null;this.src='https://placehold.co/180x140/f0f0f0/888?text=Tablet'"/></div>
+              <div class="lst-price-row"><span class="lst-price-now">$99.50</span><span class="lst-price-old">$1128.00</span></div>
+              <div class="lst-rating-row"><span class="lst-stars">★★★★★</span><span class="lst-rating-num">7.5</span></div>
+              <div class="lst-prod-name">GoPro HERO6 4K Action Camera – Black</div>
+              <button class="lst-buy-btn">Buy now</button>
+            </div>
+       
+            <div class="lst-card">
+              <button class="lst-wish">♡</button>
+              <div class="lst-img-box"><img src="images/23.png" alt="Smartphone" onerror="this.onerror=null;this.src='https://placehold.co/180x140/f0f0f0/888?text=Phone'"/></div>
+              <div class="lst-price-row"><span class="lst-price-now">$99.50</span><span class="lst-price-old">$1128.00</span></div>
+              <div class="lst-rating-row"><span class="lst-stars">★★★★★</span><span class="lst-rating-num">7.5</span></div>
+              <div class="lst-prod-name">GoPro HERO6 4K Action Camera – Black</div>
+              <button class="lst-buy-btn">Buy now</button>
+            </div>
+       
+            <div class="lst-card">
+              <button class="lst-wish">♡</button>
+              <div class="lst-img-box"><img src="images/laptop.webp" alt="Laptop" onerror="this.onerror=null;this.src='https://placehold.co/180x140/f0f0f0/888?text=Laptop'"/></div>
+              <div class="lst-price-row"><span class="lst-price-now">$99.50</span><span class="lst-price-old">$1128.00</span></div>
+              <div class="lst-rating-row"><span class="lst-stars">★★★★★</span><span class="lst-rating-num">7.5</span></div>
+              <div class="lst-prod-name">GoPro HERO6 4K Action Camera – Black</div>
+              <button class="lst-buy-btn">Buy now</button>
+            </div>
+       
+            <div class="lst-card">
+              <button class="lst-wish">♡</button>
+              <div class="lst-img-box"><img src="images/headphones.webp" alt="Headphones" onerror="this.onerror=null;this.src='https://placehold.co/180x140/f0f0f0/888?text=Headphones'"/></div>
+              <div class="lst-price-row"><span class="lst-price-now">$99.50</span><span class="lst-price-old">$1128.00</span></div>
+              <div class="lst-rating-row"><span class="lst-stars">★★★★★</span><span class="lst-rating-num">7.5</span></div>
+              <div class="lst-prod-name">GoPro HERO6 4K Action Camera – Black</div>
+              <button class="lst-buy-btn">Buy now</button>
+            </div>
+       
+            <div class="lst-card">
+              <button class="lst-wish">♡</button>
+              <div class="lst-img-box"><img src="images/camera.webp" alt="Camera" onerror="this.onerror=null;this.src='https://placehold.co/180x140/f0f0f0/888?text=Camera'"/></div>
+              <div class="lst-price-row"><span class="lst-price-now">$99.50</span><span class="lst-price-old">$1128.00</span></div>
+              <div class="lst-rating-row"><span class="lst-stars">★★★★★</span><span class="lst-rating-num">7.5</span></div>
+              <div class="lst-prod-name">GoPro HERO6 4K Action Camera – Black</div>
+              <button class="lst-buy-btn">Buy now</button>
+            </div>
+       
+            <div class="lst-card">
+              <button class="lst-wish">♡</button>
+              <div class="lst-img-box"><img src="images/head.png" alt="Headphones White" onerror="this.onerror=null;this.src='https://placehold.co/180x140/f0f0f0/888?text=Headphones'"/></div>
+              <div class="lst-price-row"><span class="lst-price-now">$99.50</span><span class="lst-price-old">$1128.00</span></div>
+              <div class="lst-rating-row"><span class="lst-stars">★★★★★</span><span class="lst-rating-num">7.5</span></div>
+              <div class="lst-prod-name">GoPro HERO6 4K Action Camera – Black</div>
+              <button class="lst-buy-btn">Buy now</button>
+            </div>
+       
+            <div class="lst-card">
+              <button class="lst-wish">♡</button>
+              <div class="lst-img-box"><img src="images/watch.webp" alt="Smartwatch" onerror="this.onerror=null;this.src='https://placehold.co/180x140/f0f0f0/888?text=Watch'"/></div>
+              <div class="lst-price-row"><span class="lst-price-now">$99.50</span><span class="lst-price-old">$1128.00</span></div>
+              <div class="lst-rating-row"><span class="lst-stars">★★★★★</span><span class="lst-rating-num">7.5</span></div>
+              <div class="lst-prod-name">GoPro HERO6 4K Action Camera – Black</div>
+              <button class="lst-buy-btn">Buy now</button>
+            </div>
+       
+            <div class="lst-card">
+              <button class="lst-wish">♡</button>
+              <div class="lst-img-box"><img src="images/iPhone.png" alt="Phone 2" onerror="this.onerror=null;this.src='https://placehold.co/180x140/f0f0f0/888?text=Phone'"/></div>
+              <div class="lst-price-row"><span class="lst-price-now">$99.50</span><span class="lst-price-old">$1128.00</span></div>
+              <div class="lst-rating-row"><span class="lst-stars">★★★★★</span><span class="lst-rating-num">7.5</span></div>
+              <div class="lst-prod-name">GoPro HERO6 4K Action Camera – Black</div>
+              <button class="lst-buy-btn">Buy now</button>
+            </div>
+       
+          </div>
+       
+          <div class="lst-load-wrap">
+            <button class="lst-load-btn">Load more</button>
+          </div>
+       
+        </main>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- NEWSLETTER -->
+<div class="newsletter-section">
+  <h2>Subscribe on our newsletter</h2>
+  <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+  <div class="newsletter-form">
+    <div class="email-input-wrapper">
+      <svg width="18" height="18" fill="none" stroke="#888" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+      </svg>
+      <input type="email" placeholder="Email">
+    </div>
+    <button class="subscribe-btn">Subscribe</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <img src="images/preview.webp" alt="Brand Logo">
+        <span class="logo-text">Brand</span>
+      </a>
+      <p>Best information about the company goes here but now lorem ipsum is enough.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Find store</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Blogs</a></li>
+      </ul>
+    </div>
+
+    <!-- Partnership -->
+    <div class="footer-col">
+      <h4>Partnership</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Find store</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Blogs</a></li>
+      </ul>
+    </div>
+
+    <!-- Information -->
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Money Refund</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </div>
+
+    <!-- For users -->
+    <div class="footer-col">
+      <h4>For users</h4>
+      <ul>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">My Orders</a></li>
+      </ul>
+    </div>
+
+    <!-- Get app -->
+    <div class="footer-col">
+      <h4>Get app</h4>
+      <div class="app-btns">
+        <a href="#" class="app-btn">
+          <i class="fab fa-apple"></i>
+          <div>
+            <span>Download on the</span>
+            <strong>App Store</strong>
+          </div>
+        </a>
+        <a href="#" class="app-btn">
+          <i class="fab fa-google-play"></i>
+          <div>
+            <span>GET IT ON</span>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>© 2026 Ecommerce.</p>
+    <div class="footer-lang">
+      <img src="https://flagcdn.com/w40/us.png" alt="English">
+      <span>English</span>
+    
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -2304,17 +2304,7 @@ footer {
   overflow: hidden;
 }
 
-body {
-  padding-top: 130px;
-}
 
-.cat-menu {
-  position: fixed;
-  top: 130px;
-  left: 10px;
-  z-index: 9999;
-  width: 200px;
-}
 
   /* TOP MENU */
   .top-menu {
@@ -2731,3 +2721,23 @@ body {
     display: none;
   }
 }
+  .search-wrapper {
+    order: 3;
+    width: 100%;
+    flex: none;
+    display: flex !important;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  body {
+    padding-top: 130px;
+  }
+
+  .cat-menu {
+    position: fixed;
+    top: 130px;
+    left: 10px;
+    z-index: 9999;
+    width: 200px;
+  }

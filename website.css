@@ -2899,3 +2899,10 @@ footer {
     min-width: auto !important;
   }
 }
+@media (max-width: 768px) {
+  .category-box ul {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+}

@@ -2851,8 +2851,7 @@ footer {
  
 /* ===== PAGE WRAPPER RESPONSIVE FIX ===== */
 @media (max-width: 768px) {
-  
-  /* Description + You may like */
+
   .page-wrapper {
     flex-direction: column !important;
   }
@@ -2875,15 +2874,10 @@ footer {
     padding: 0 16px;
   }
 
-  .left-inner {
-    padding: 16px;
-  }
+  .left-inner { padding: 16px; }
 
-  .sidebar-inner {
-    padding: 16px;
-  }
+  .sidebar-inner { padding: 16px; }
 
-  /* Product page */
   .product-page {
     flex-direction: column !important;
     padding: 16px !important;
@@ -2895,7 +2889,6 @@ footer {
     width: 100% !important;
   }
 
-  /* Related products */
   .products {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
@@ -2905,5 +2898,4 @@ footer {
     max-width: 100% !important;
     min-width: auto !important;
   }
-}
 }

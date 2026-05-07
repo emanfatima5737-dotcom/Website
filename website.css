@@ -1882,8 +1882,39 @@ footer {
     transition: background .15s, border-color .15s;
   }
   .lst-load-btn:hover { background: #f0f0f0; border-color: #aaa; }
- 
- 
+ /* Super discount banner fix */
+.product-section .banner {
+  background: #1a5276;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.product-section .banner h2 {
+  color: white;
+  margin: 0;
+}
+
+.product-section .banner p {
+  color: #cce4f7;
+  margin: 5px 0 0;
+}
+
+.product-section .banner button {
+  background: white;
+  color: #1a5276;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 
   /* ===== PRODUCT PAGE ===== */
   .product-page {
@@ -2792,4 +2823,55 @@ footer {
     width: 100%;
   }
 
+}
+
+@media (max-width: 768px) {
+  .product-section .banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .product-section .banner button {
+    width: 100%;
+  }
+}
+ /* Projects page responsive fix */
+@media (max-width: 768px) {
+
+  /* Product detail layout */
+  .product-detail,
+  .detail-layout,
+  .product-layout {
+    flex-direction: column !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Description tabs */
+  .detail-tabs,
+  .tab-content {
+    width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    padding: 10px !important;
+  }
+
+  /* You may like section */
+  .you-may-like,
+  .related-products,
+  .sidebar-products {
+    width: 100% !important;
+    margin-top: 20px !important;
+  }
+
+  /* Horizontal scroll band karo */
+  body {
+    overflow-x: hidden !important;
+  }
+
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 }

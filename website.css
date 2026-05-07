@@ -2875,3 +2875,60 @@ footer {
     box-sizing: border-box !important;
   }
 }
+/* ===== PAGE WRAPPER RESPONSIVE FIX ===== */
+@media (max-width: 768px) {
+  
+  /* Description + You may like */
+  .page-wrapper {
+    flex-direction: column !important;
+  }
+
+  .left-content {
+    width: 100% !important;
+    flex: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .right-sidebar {
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  .tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0 16px;
+  }
+
+  .left-inner {
+    padding: 16px;
+  }
+
+  .sidebar-inner {
+    padding: 16px;
+  }
+
+  /* Product page */
+  .product-page {
+    flex-direction: column !important;
+    padding: 16px !important;
+  }
+
+  .product-images,
+  .product-info,
+  .product-supplier {
+    width: 100% !important;
+  }
+
+  /* Related products */
+  .products {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .card {
+    max-width: 100% !important;
+    min-width: auto !important;
+  }
+}

@@ -2752,26 +2752,9 @@ footer {
     display: none;
   }
 }
-  .search-wrapper {
-    order: 3;
-    width: 100%;
-    flex: none;
-    display: flex !important;
-    margin: 0;
-    overflow: hidden;
-  }
+ 
 
-  body {
-    padding-top: 130px;
-  }
-
-  .cat-menu {
-    position: fixed;
-    top: 130px;
-    left: 10px;
-    z-index: 9999;
-    width: 200px;
-  }
+  
 @media (max-width: 768px) {
 
   /* Filter bar fix */
@@ -2865,16 +2848,7 @@ footer {
     margin-top: 20px !important;
   }
 
-  /* Horizontal scroll band karo */
-  body {
-    overflow-x: hidden !important;
-  }
-
-  * {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-}
+ 
 /* ===== PAGE WRAPPER RESPONSIVE FIX ===== */
 @media (max-width: 768px) {
   

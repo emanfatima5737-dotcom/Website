@@ -2310,31 +2310,43 @@ footer {
 
 @media (max-width: 768px) {
   /* NAV */
-nav {
+  nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     flex-wrap: nowrap;
-    padding: 10px 16px;
-    gap: 8px;
+    padding: 8px 12px;
+    gap: 6px;
   }
 
-  .logo { flex: 1; }
-  .nav-icons { margin-left: auto; }
+  .logo { flex-shrink: 0; }
+  .logo img { width: 36px; height: 36px; }
+  .logo-text { font-size: 16px; }
+
+  .search-wrapper {
+    flex: 1;
+    min-width: 0;
+    display: flex !important;
+    margin: 0 6px;
+    overflow: hidden;
+    order: unset;
+    width: auto;
+  }
+
+  .search-input {
+    padding: 8px 6px;
+    font-size: 12px;
+    min-width: 0;
+  }
+
+  .cat-dropdown { display: none; }
+  .search-btn { padding: 0 10px; flex-shrink: 0; }
+  .search-btn .btn-text { display: none; }
+  .nav-icons { display: none; }
+  .hamburger { flex-shrink: 0; }
   .nav-icon { padding: 6px 8px; }
   .nav-icon span { display: none; }
-  .nav-icons { gap: 2px; }
-
-.search-wrapper {
-  order: unset;
-  flex: 1;
-  min-width: 0;
-  display: flex !important;
-  margin: 0 8px;
-  overflow: hidden;
-}
-
 
   /* TOP MENU */
   .top-menu {
@@ -2345,7 +2357,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
- 
   }
 
   .menu-left {
@@ -2435,7 +2446,6 @@ nav {
   .filter-bar { padding: 10px 16px; flex-wrap: wrap; gap: 10px; }
   .breadcrumb, .active-filters { padding: 10px 16px; }
 }
-
 @media (max-width: 480px) {
   nav { padding: 10px 12px; }
   .logo-text { font-size: 18px; }

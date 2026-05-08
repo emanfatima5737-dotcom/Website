@@ -2333,6 +2333,11 @@ footer {
   gap: 2px;
   margin-left: auto;
 }
+  .nav-icon span { display: none; }
+
+.nav-icon {
+  padding: 4px 6px;
+}
 
   .logo { flex-shrink: 0; }
   .logo img { width: 36px; height: 36px; }

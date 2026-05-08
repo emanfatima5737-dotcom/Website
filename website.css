@@ -5,16 +5,16 @@ body {
   background: white;
   margin: 0;
   overflow-x: hidden;
-  padding-top: 90px; /* YEH ADD KARO */
+  padding-top: 0; /* YEH ADD KARO */
 }
 
 /* ===== NAVBAR ===== */
 nav {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   background: #fff;
-  z-index: 999;
+  z-index: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;

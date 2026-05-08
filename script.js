@@ -1,9 +1,8 @@
+
 function updateBodyPadding() {
   const header = document.querySelector('.site-header');
   if (header) {
     document.body.style.paddingTop = header.offsetHeight + 'px';
-  } else {
-    document.body.style.paddingTop = '0px';
   }
 }
 

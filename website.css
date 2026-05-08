@@ -2310,12 +2310,12 @@ footer {
 
 @media (max-width: 768px) {
   /* NAV */
-  nav {
+nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 10px 16px;
     gap: 8px;
   }
@@ -2326,15 +2326,14 @@ footer {
   .nav-icon span { display: none; }
   .nav-icons { gap: 2px; }
 
-  .search-wrapper {
-  order: 3;
-  width: 100%;
-  flex: none;
+.search-wrapper {
+  order: unset;
+  flex: 1;
+  min-width: 0;
   display: flex !important;
-  margin: 0;
+  margin: 0 8px;
   overflow: hidden;
 }
-
 
 
   /* TOP MENU */

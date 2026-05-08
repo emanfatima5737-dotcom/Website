@@ -2328,6 +2328,11 @@ footer {
     padding: 8px 12px;
     gap: 6px;
   }
+  .nav-icons { 
+  display: flex !important;
+  gap: 2px;
+  margin-left: auto;
+}
 
   .logo { flex-shrink: 0; }
   .logo img { width: 36px; height: 36px; }

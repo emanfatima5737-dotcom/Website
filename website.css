@@ -2906,3 +2906,14 @@ footer {
     gap: 8px !important;
   }
 }
+@media (max-width: 768px) {
+  .search-wrapper {
+    display: flex !important;
+  }
+  .search-btn {
+    display: flex !important;
+  }
+  .cat-btn {
+    display: flex !important;
+  }
+}

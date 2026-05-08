@@ -1154,7 +1154,20 @@ footer { background: white; border-top: 1px solid #e2e8f0; padding: 50px 40px 0;
   .logo-text { font-size: 18px; }
 
   /* Hide search in nav on mobile */
-  nav .search-wrapper { display: none !important; }
+ /* MOBILE SEARCH */
+.mobile-search {
+  display: none;
+  padding: 8px 12px;
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+  width: 100%;
+}
+
+.mobile-search .search-wrapper {
+  display: flex !important;
+  margin: 0;
+  width: 100%;
+}
 
   /* Show hamburger */
   .hamburger { display: flex; }

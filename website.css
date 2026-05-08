@@ -258,11 +258,6 @@ nav {
 /* ── Top Menu Bar ── */
 
 .top-menu {
-  position: fixed;
-  top: 90px;
-  left: 0;
-  width: 100%;
-  z-index: 998;
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
   height: 50px;
@@ -271,7 +266,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   margin-top: 0;
-}nu-left {
+}
+.menu-left {
   display: flex;
   align-items: center;
   gap: 24px;

@@ -2896,12 +2896,52 @@ footer {
     min-height: 150px !important;
   }
 
-  /* Fix 4: Navbar logo overlap */
-  nav {
-    flex-wrap: nowrap;
-    overflow: hidden;
-  }
-  .logo-text {
-    font-size: 16px;
-  }
+/* Navbar mobile fix */
+nav {
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  gap: 8px;
+}
+
+.logo {
+  flex: 1;
+}
+
+.search-wrapper {
+  display: none;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.nav-icons .nav-icon span {
+  display: none;
+}
+
+.nav-icons .nav-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.hamburger {
+  display: flex !important;
+}
+
+.top-menu {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 8px 16px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.top-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-right {
+  display: none;
 }
